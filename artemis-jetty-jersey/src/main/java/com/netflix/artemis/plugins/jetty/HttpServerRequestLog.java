@@ -1,4 +1,4 @@
-package com.netflix.artemis.server;
+package com.netflix.artemis.plugins.jetty;
 
 import org.eclipse.jetty.server.NCSARequestLog;
 import org.eclipse.jetty.util.StringUtil;

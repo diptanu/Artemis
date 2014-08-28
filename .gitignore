@@ -22,3 +22,6 @@ gradle/
 .gradle
 gradlew*
 
+
+#OS
+.DS_Store

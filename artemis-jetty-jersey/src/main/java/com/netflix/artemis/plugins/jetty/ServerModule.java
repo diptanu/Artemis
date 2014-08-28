@@ -1,4 +1,4 @@
-package com.netflix.artemis.server;
+package com.netflix.artemis.plugins.jetty;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
@@ -22,6 +22,7 @@ import java.util.EnumSet;
  * Created by dchoudhury on 5/31/14.
  */
 public class ServerModule extends AbstractModule {
+
 
 
     @Override

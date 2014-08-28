@@ -1,4 +1,4 @@
-package com.netflix.artemis.server;
+package com.netflix.artemis.plugins.jetty;
 
 import com.google.common.util.concurrent.AbstractIdleService;
 import org.eclipse.jetty.server.Server;
@@ -12,7 +12,6 @@ import java.net.BindException;
  * Created by dchoudhury on 5/31/14.
  */
 public class HttpService extends AbstractIdleService {
-
 
     private Server server;
 
