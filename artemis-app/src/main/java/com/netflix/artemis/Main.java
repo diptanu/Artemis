@@ -2,8 +2,10 @@ package com.netflix.artemis;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Injector;
+import com.netflix.artemis.governator.ServiceLoaderSuite;
 import com.netflix.governator.commons_cli.Cli;
 import com.netflix.governator.guice.LifecycleInjector;
+import com.netflix.governator.guice.LifecycleInjectorBuilder;
 import com.netflix.governator.guice.serviceloader.ServiceLoaderModule;
 import com.netflix.governator.lifecycle.LifecycleManager;
 import org.slf4j.Logger;
@@ -17,16 +19,10 @@ public class Main {
     public static void main(String args[]) {
         final Logger logger = LoggerFactory.getLogger(Main.class);
         Cli.start(Bootstrap.class, args);
-        Injector injector = LifecycleInjector.builder()
-                .withModules(
-                        new ServiceLoaderModule() {
-                            @Override
-                            protected void configureServices() {
-                                bindServices(PluginService.class).usingMultibinding(true);
-                            }
-                        })
-                .build()
-                .createInjector();
+        LifecycleInjectorBuilder lifecycleInjectorBuilder = LifecycleInjector.builder();
+        new ServiceLoaderSuite().configure(lifecycleInjectorBuilder);
+        Injector injector = lifecycleInjectorBuilder.build().createInjector();
+
         final LifecycleManager lifecycleManager = injector.getInstance(LifecycleManager.class);
         try {
             lifecycleManager.start();

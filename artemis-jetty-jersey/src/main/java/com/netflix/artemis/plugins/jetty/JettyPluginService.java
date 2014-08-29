@@ -11,7 +11,7 @@ import java.net.BindException;
 /**
  * Created by dchoudhury on 8/28/14.
  */
-public class JettyPlugin implements PluginService {
+public class JettyPluginService implements PluginService {
 
     @Inject
     private Server server;

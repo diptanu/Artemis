@@ -1,0 +1,3 @@
+com.netflix.artemis.plugins.jetty.PluginModule
+com.netflix.artemis.plugins.jetty.ServerModule
+com.netflix.artemis.plugins.jetty.RestModule
