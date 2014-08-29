@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":artemis-plugin")
+    compile 'com.netflix.karyon:karyon-core:2.1.00-RC3'
+}

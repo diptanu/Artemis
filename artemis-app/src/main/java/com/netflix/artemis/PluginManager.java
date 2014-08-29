@@ -1,6 +1,9 @@
 package com.netflix.artemis;
 
-import javax.inject.Inject;
+import com.google.inject.Inject;
+
+import javax.annotation.Nullable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -8,7 +11,7 @@ import java.util.Set;
  */
 public class PluginManager {
 
-    private Set<PluginService> services;
+    Set<PluginService> services = new HashSet<PluginService>();
 
     @Inject
     public PluginManager(Set<PluginService> services) {

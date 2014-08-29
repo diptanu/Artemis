@@ -1,0 +1,2 @@
+com.netflix.artemis.plugins.karyon.PluginModule
+com.netflix.artemis.plugins.karyon.KaryonPluginModule
