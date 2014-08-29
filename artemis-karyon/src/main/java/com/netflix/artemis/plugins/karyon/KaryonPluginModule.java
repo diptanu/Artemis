@@ -4,6 +4,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.netflix.karyon.transport.KaryonTransport;
 import com.netflix.karyon.transport.http.SimpleUriRouter;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.reactivex.netty.channel.StringTransformer;
 import io.reactivex.netty.protocol.http.server.HttpServer;
 import io.reactivex.netty.protocol.http.server.HttpServerRequest;
 import io.reactivex.netty.protocol.http.server.HttpServerResponse;
@@ -26,8 +28,9 @@ public class KaryonPluginModule extends AbstractModule {
         simpleUriRouter.addUri("/foo", new RequestHandler() {
             @Override
             public Observable<Void> handle(HttpServerRequest request, HttpServerResponse response) {
-                response.writeAndFlush("Hello World`");
-                return response.close();
+                response.writeAndFlush("Hello World", StringTransformer.DEFAULT_INSTANCE);
+                response.setStatus(HttpResponseStatus.OK);
+                return Observable.empty();
             }
 
             @Override
