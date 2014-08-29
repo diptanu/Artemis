@@ -1,2 +1,2 @@
 rootProject.name = 'Artemis'
-include 'artemis-plugin', 'artemis-app', 'artemis-jetty-jersey'
+include 'artemis-plugin', 'artemis-app', 'artemis-jetty-jersey', 'artemis-karyon'
