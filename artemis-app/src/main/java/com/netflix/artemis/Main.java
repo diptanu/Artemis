@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String args[]) {
         final Logger logger = LoggerFactory.getLogger(Main.class);
-        LifecycleInjectorBuilder lifecycleInjectorBuilder = LifecycleInjector.builder();
+        LifecycleInjectorBuilder lifecycleInjectorBuilder = LifecycleInjector.builder().withAdditionalModules(new MainModule());
         new ServiceLoaderSuite().configure(lifecycleInjectorBuilder);
         Injector injector = lifecycleInjectorBuilder.build().createInjector();
 
